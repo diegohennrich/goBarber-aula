@@ -1,1 +1,6 @@
-<h1> Tela inicial do dash</h1>
+{% extends '_layouts/default.njk' %}
+{# este campo user consegue ser acessado, pois na hora do login e middleware auth passa o valor do user para o res.locals.user #}
+{% block body %}
+    <h1>Bem-vindo, {{ user.name }}</h1>
+    <a href="/app/logout">Sair</a>
+{% endblock %}

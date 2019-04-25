@@ -4,6 +4,11 @@
     <form action="/signin" method="post">
         
         <img src="/images/logo.svg" height="42" />
+
+        {% for error in flashError %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+
         <input type="text" name="email" placeholder="Seu e-mail" />
         <input type="password" name="password" placeholder="Senha" />
 
