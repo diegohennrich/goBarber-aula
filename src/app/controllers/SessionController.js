@@ -20,9 +20,10 @@ class SessionController {
       return res.redirect('/signin')
     }
 
+    const { id, provider } = user
     req.session.user = user
 
-    res.redirect('/app/dashboard/')
+    res.redirect(provider ? `app/dashboard?provider=${id}` : '/app/dashboard/')
   }
 
   destroy (req, res) {

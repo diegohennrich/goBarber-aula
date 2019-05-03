@@ -1,6 +1,22 @@
 {% extends '_layouts/default.njk' %}
 {# este campo user consegue ser acessado, pois na hora do login e middleware auth passa o valor do user para o res.locals.user #}
 {% block body %}
-    <h1>Bem-vindo, {{ user.name }}</h1>
-    <a href="/app/logout">Sair</a>
+    <div class="content">
+        <strong>Olá, {{ user.name }} </strong>
+        <p>Inicie um agendamento escolhendo um profissional abaixo:</p>
+
+        <ul class="providers">
+            {% for curr in providers %}
+            <li class="provider">
+                <div>
+                    <img src="/files/{{ curr.avatar }}" />
+                    <strong>{{ curr.name }} </strong>
+                </div>
+                 <a href="/app/appointments/new/{{ curr.id }}">+</a> 
+            </li>
+            {% endfor %}
+        </ul>
+
+        <a href="/app/logout" class="logout">Sair</a>
+    </div>
 {% endblock %}

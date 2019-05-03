@@ -1,0 +1,21 @@
+{% extends '_layouts/default.njk' %}
+{# este campo user consegue ser acessado, pois na hora do login e middleware auth passa o valor do user para o res.locals.user #}
+{% block body %}
+  <div class="content">
+    <strong>Seus agendamentos</strong>
+    <p>Veja abaixo a lista de agendamentos que você tem para hoje:</p>
+
+    <ul class="providers">
+      {% for appointment in agendamentos %}
+        <li class="provider">
+          <div>
+            <img src="/files/{{ appointment.user.avatar }}" />
+             <strong>{{ appointment.user.name }} <br> {{ appointment.date }}</strong>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <a href="/app/logout" class="logout">Sair</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% for curr in available %}
+    <label for="time-{{ curr.horario }}" class="{% if curr.available === false %} disabled {% endif %}">
+        {% if curr.available === true %}
+        <input type="radio" name="date" value="{{ curr.montaHora }}" id="time-{{ curr.horario }}"/>
+        {% endif %}
+        {{ curr.horario }}
+    </label>
+{% endfor %}
